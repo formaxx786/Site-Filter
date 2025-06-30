@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "NO Porn",
+  "version": "1.0",
+  "description": "Block websites containing user-defined or default keywords.",
+  "incognito": "split",
+  "permissions": ["storage", "tabs", "webNavigation"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "icon.png"
+  }
+}
